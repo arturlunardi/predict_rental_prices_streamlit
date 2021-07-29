@@ -20,7 +20,8 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-print(os.abspath(''))
+print(os.path.abspath(''))
+print(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2.csv'))
 
 """
 # Predicting Rental Prices in Brazil
