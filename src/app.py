@@ -20,9 +20,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+print(os.abspath(''))
+
 """
 # Predicting Rental Prices in Brazil
-[![Star](https://img.shields.io/github/stars/jrieke/traingenerator.svg?logo=github&style=social)](https://gitHub.com/jrieke/traingenerator/stargazers)
+[![Star](https://img.shields.io/github/stars/arturlunardi/predict_rental_prices_streamlit?style=social)](https://github.com/arturlunardi/predict_rental_prices_streamlit)
 &nbsp[![Follow](https://img.shields.io/badge/medium-arturlunardi-follow?style=social&logo=medium)](https://arturlunardi.medium.com/)
 &nbsp[![Follow](https://img.shields.io/badge/Connect-follow?style=social&logo=linkedin)](https://www.linkedin.com/in/artur-lunardi-di-fante-393611194/)
 """
@@ -136,7 +138,7 @@ if condition == 'Introduction':
 
     The prediction are made regarding to the rent amount utilizing pre trained machine learning models.
 
-    All the operations in the dataset were already done and stored as csv files inside the data directory. If you want to check the code, go through the notebook directory in the github repository.
+    All the operations in the dataset were already done and stored as csv files inside the data directory. If you want to check the code, go through the notebook directory in the [github repository](https://github.com/arturlunardi/predict_rental_prices_streamlit).
     """)
 
     st.subheader('Model Definition')
