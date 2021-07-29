@@ -20,9 +20,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-print(os.path.abspath(''))
-print(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2.csv'))
-
 """
 # Predicting Rental Prices in Brazil
 [![Star](https://img.shields.io/github/stars/arturlunardi/predict_rental_prices_streamlit?style=social)](https://github.com/arturlunardi/predict_rental_prices_streamlit)
@@ -39,7 +36,8 @@ def get_raw_data():
     This function return a pandas DataFrame with the raw data.
     """
 
-    raw_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2.csv'))
+    # raw_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2.csv'))
+    raw_df = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'houses_to_rent_v2.csv'))
     return raw_df
 
 
@@ -49,7 +47,8 @@ def get_cleaned_data():
     This function return a pandas DataFrame with the cleaned data.
     """
 
-    clean_data = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2_fteng.csv'))
+    # clean_data = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2_fteng.csv'))
+    clean_data = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'houses_to_rent_v2_fteng.csv'))
     return clean_data
 
 
@@ -58,25 +57,29 @@ def get_raw_eval_df():
     """
     This function return a pandas DataFrame with the dataframe and themachine learning models along with it's metrics.
     """
-    raw_eval_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'model_evaluation.csv'))
+    # raw_eval_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'model_evaluation.csv'))
+    raw_eval_df = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'model_evaluation.csv'))
     return raw_eval_df
 
 
 @st.cache(hash_funcs={pd.DataFrame: lambda x: x})
 def load_models_df(dataframe):
     df_evaluated = dataframe.copy()
-    models_list = os.listdir(os.path.abspath('../models'))
+    # models_list = os.listdir(os.path.abspath('../models'))
+    models_list = os.listdir(os.path.join(os.path.abspath(''), 'models'))
     rep = {"pipe": "model", "pickle": "h5"}
     for index, row in df_evaluated.iterrows():
         # check if the file_name is in our models directory
         if row['pipe_file_name'] in models_list:
             # now, load the model.
-            with open(os.path.join(os.path.abspath('../models'), row['pipe_file_name']), 'rb') as fid:
+            # with open(os.path.join(os.path.abspath('../models'), row['pipe_file_name']), 'rb') as fid:
+            with open(os.path.join(os.path.abspath(''), 'models', row['pipe_file_name']), 'rb') as fid:
                 model_trained = pickle.load(fid)
             
             # for the keras model, we have to load the model separately and add into the pipeline or transformed target object.
             if row['name'] == 'NeuralNetwork':
-                model_keras = load_model(os.path.join(os.path.abspath('../models'), functools.reduce(lambda a, kv: a.replace(*kv), rep.items(), row['pipe_file_name'])))
+                # model_keras = load_model(os.path.join(os.path.abspath('../models'), functools.reduce(lambda a, kv: a.replace(*kv), rep.items(), row['pipe_file_name'])))
+                model_keras = load_model(os.path.join(os.path.abspath(''), 'models', functools.reduce(lambda a, kv: a.replace(*kv), rep.items(), row['pipe_file_name'])))
                 # check if the target transformer it is active
                 if row['custom_target']:
                     # reconstruct the model inside a kerasregressor and add inside the transformed target object
@@ -123,7 +126,8 @@ condition = st.sidebar.selectbox(
 # ------------- Introduction ------------------------
 
 if condition == 'Introduction':
-    st.image('../data/dataset-cover.jpg')
+    # st.image('../data/dataset-cover.jpg')
+    st.image(os.path.join(os.path.abspath(''), 'data', 'dataset-cover.jpg'))
     st.subheader('About')
     
     ## FALTA O CHECK ON GITHUB
