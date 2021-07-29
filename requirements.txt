@@ -7,4 +7,5 @@ lightgbm==3.0.0
 plotly==4.12.0
 tensorflow==2.4.1
 keras==2.4.3
+statsmodels==0.12.2
 
