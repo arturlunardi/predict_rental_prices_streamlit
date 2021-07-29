@@ -1,0 +1,59 @@
+name,model,params,rmse_cv,std_cv,rmse_testset,mae_testset,custom_features,custom_target,all_scores_cv,pipe_file_name
+RandomForest,"RandomForestRegressor(max_depth=7, min_samples_leaf=4, min_samples_split=10,
+                      n_estimators=600)","[{'regressor__model__n_estimators': 600, 'regressor__model__min_samples_split': 10, 'regressor__model__min_samples_leaf': 4, 'regressor__model__max_features': 'auto', 'regressor__model__max_depth': 7, 'regressor__model__bootstrap': True}]",336.243,89.084,239.44751153209782,99.57182811583176,True,True,[283.38457272 483.46690151 297.44253447 386.44145477 230.48063481],v1_pipe_RandomForest_336.243_20210728_172108.pickle
+XGB,"XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+             colsample_bynode=1, colsample_bytree=0.7, gamma=0.0, gpu_id=-1,
+             importance_type='gain', interaction_constraints='',
+             learning_rate=0.3, max_delta_step=0, max_depth=7,
+             min_child_weight=1, missing=nan, monotone_constraints='()',
+             n_estimators=200, n_jobs=0, num_parallel_tree=1, random_state=0,
+             reg_alpha=0, reg_lambda=1, scale_pos_weight=1, subsample=1,
+             tree_method='exact', validate_parameters=1, verbosity=None)","[{'regressor__model__n_estimators': 200, 'regressor__model__min_child_weight': 1, 'regressor__model__max_depth': 7, 'regressor__model__learning_rate': 0.3, 'regressor__model__gamma': 0.0, 'regressor__model__colsample_bytree': 0.7}]",323.863,89.577,231.43581240269594,93.76274760896335,True,True,[274.55360499 475.35215938 279.8041076  369.33462719 220.27252781],v1_pipe_XGB_323.863_20210728_172108.pickle
+LGBM,"LGBMRegressor(boosting_type='dart', colsample_bytree=1, learning_rate=0.25,
+              max_depth=5, min_child_weight=1, n_estimators=1400,
+              num_leaves=2000)","[{'regressor__model__num_leaves': 2000, 'regressor__model__n_estimators': 1400, 'regressor__model__min_child_weight': 1, 'regressor__model__max_depth': 5, 'regressor__model__learning_rate': 0.25, 'regressor__model__colsample_bytree': 1, 'regressor__model__boosting_type': 'dart'}]",333.078,83.941,236.80850858648557,103.32535598133596,True,True,[270.62498224 476.68977738 294.03818723 376.41815461 247.62047763],v1_pipe_LGBM_333.078_20210728_172108.pickle
+Ridge,Ridge(fit_intercept=False),"[{'regressor__model__fit_intercept': False, 'regressor__model__alpha': 1.0}]",5381.929,7222.012,2081.096163116406,745.9218449118616,True,True,"[ 1545.12105719 19822.66040318  1689.71159172  2007.13744208
+  1845.01232121]",v1_pipe_Ridge_5381.929_20210728_172108.pickle
+NeuralNetwork,<tensorflow.python.keras.wrappers.scikit_learn.KerasRegressor object at 0x000001ACEFB22A90>,"[{'regressor__model__optimizer': 'Adam', 'regressor__model__kernel_initializer': 'uniform', 'regressor__model__epochs': 100, 'regressor__model__dropout': 0.0, 'regressor__model__batch_size': 32, 'regressor__model__activation': 'relu'}]",1003.23,958.119,895.18224054683,262.27239398608583,True,True,[ 461.32625296 2893.62143013  353.9416898   485.24179561  822.0177779 ],v1_pipe_NeuralNetwork_1003.23_20210728_172108.pickle
+RandomForest,"RandomForestRegressor(max_depth=8, min_samples_leaf=2, n_estimators=800)","[{'model__n_estimators': 800, 'model__min_samples_split': 2, 'model__min_samples_leaf': 2, 'model__max_features': 'auto', 'model__max_depth': 8, 'model__bootstrap': True}]",327.836,91.757,231.49014693230018,91.12146228914109,True,False,[271.00313063 480.11290777 285.34060214 380.32781987 222.39779664],v1_pipe_RandomForest_327.836_20210728_173059.pickle
+XGB,"XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+             colsample_bynode=1, colsample_bytree=1, gamma=0.4, gpu_id=-1,
+             importance_type='gain', interaction_constraints='',
+             learning_rate=0.15, max_delta_step=0, max_depth=3,
+             min_child_weight=1, missing=nan, monotone_constraints='()',
+             n_estimators=600, n_jobs=0, num_parallel_tree=1, random_state=0,
+             reg_alpha=0, reg_lambda=1, scale_pos_weight=1, subsample=1,
+             tree_method='exact', validate_parameters=1, verbosity=None)","[{'model__n_estimators': 600, 'model__min_child_weight': 1, 'model__max_depth': 3, 'model__learning_rate': 0.15, 'model__gamma': 0.4, 'model__colsample_bytree': 1}]",324.994,82.39,228.14897690931613,93.99424706336497,True,False,[268.5376579  472.52226076 276.61179007 357.20306135 250.09419218],v1_pipe_XGB_324.994_20210728_173059.pickle
+LGBM,"LGBMRegressor(boosting_type='dart', colsample_bytree=0.5, learning_rate=0.2,
+              max_depth=50, min_child_weight=3, n_estimators=800,
+              num_leaves=10)","[{'model__num_leaves': 10, 'model__n_estimators': 800, 'model__min_child_weight': 3, 'model__max_depth': 50, 'model__learning_rate': 0.2, 'model__colsample_bytree': 0.5, 'model__boosting_type': 'dart'}]",346.223,86.662,248.82979780026605,130.47596380352294,True,False,[283.09389059 498.18457994 305.31297793 384.1176855  260.4066415 ],v1_pipe_LGBM_346.223_20210728_173059.pickle
+Ridge,"Ridge(alpha=0.82018, fit_intercept=False)","[{'model__fit_intercept': False, 'model__alpha': 0.82018}]",329.259,49.972,303.33579149935713,171.74095390520802,True,False,[319.95719719 277.18571745 339.25581975 419.24524012 290.65314773],v1_pipe_Ridge_329.259_20210728_173059.pickle
+NeuralNetwork,<tensorflow.python.keras.wrappers.scikit_learn.KerasRegressor object at 0x000001ACF49F0460>,"[{'model__optimizer': 'RMSprop', 'model__kernel_initializer': 'glorot_uniform', 'model__epochs': 300, 'model__dropout': 0.3, 'model__batch_size': 32, 'model__activation': 'relu'}]",458.36,52.753,499.809085380125,317.20151048578015,True,False,[422.11842152 383.42833652 526.26163652 506.82132776 453.16839213],v1_pipe_NeuralNetwork_458.36_20210728_173059.pickle
+RandomForest,"RandomForestRegressor(max_depth=8, min_samples_leaf=2, n_estimators=800)","[{'regressor__model__n_estimators': 800, 'regressor__model__min_samples_split': 2, 'regressor__model__min_samples_leaf': 2, 'regressor__model__max_features': 'auto', 'regressor__model__max_depth': 8, 'regressor__model__bootstrap': True}]",320.619,91.815,227.052348860984,83.45902979964666,False,True,[265.14088899 472.98128059 283.01337532 370.62591858 211.33440615],v1_pipe_RandomForest_320.619_20210728_174612.pickle
+XGB,"XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+             colsample_bynode=1, colsample_bytree=1, gamma=0.1, gpu_id=-1,
+             importance_type='gain', interaction_constraints='',
+             learning_rate=0.25, max_delta_step=0, max_depth=9,
+             min_child_weight=0.001, missing=nan, monotone_constraints='()',
+             n_estimators=400, n_jobs=0, num_parallel_tree=1, random_state=0,
+             reg_alpha=0, reg_lambda=1, scale_pos_weight=1, subsample=1,
+             tree_method='exact', validate_parameters=1, verbosity=None)","[{'regressor__model__n_estimators': 400, 'regressor__model__min_child_weight': 0.001, 'regressor__model__max_depth': 9, 'regressor__model__learning_rate': 0.25, 'regressor__model__gamma': 0.1, 'regressor__model__colsample_bytree': 1}]",326.334,93.633,230.05529889842217,101.13552399156569,False,True,[267.05225135 485.94111314 287.84714424 371.08940258 219.74009709],v1_pipe_XGB_326.334_20210728_174612.pickle
+LGBM,"LGBMRegressor(boosting_type='goss', colsample_bytree=0.7, learning_rate=0.3,
+              max_depth=6, n_estimators=800, num_leaves=1115)","[{'regressor__model__num_leaves': 1115, 'regressor__model__n_estimators': 800, 'regressor__model__min_child_weight': 0.001, 'regressor__model__max_depth': 6, 'regressor__model__learning_rate': 0.3, 'regressor__model__colsample_bytree': 0.7, 'regressor__model__boosting_type': 'goss'}]",360.86,82.954,276.30213725427035,148.5538006999603,False,True,[308.06376947 506.31785625 314.92690067 397.74237341 277.2486941 ],v1_pipe_LGBM_360.86_20210728_174612.pickle
+Ridge,Ridge(alpha=0.9500500000000001),"[{'regressor__model__fit_intercept': True, 'regressor__model__alpha': 0.9500500000000001}]",5660.818,7020.64,2179.542699974591,821.855414005279,False,True,"[ 1966.36592953 19695.94702391  1890.39385755  2295.37441762
+  2456.01081337]",v1_pipe_Ridge_5660.818_20210728_174612.pickle
+NeuralNetwork,<tensorflow.python.keras.wrappers.scikit_learn.KerasRegressor object at 0x000001ACEF834910>,"[{'regressor__model__optimizer': 'Adagrad', 'regressor__model__kernel_initializer': 'uniform', 'regressor__model__epochs': 50, 'regressor__model__dropout': 0.3, 'regressor__model__batch_size': 256, 'regressor__model__activation': 'relu'}]",4310.972,82.256,4949.715108524944,3291.365420684013,False,True,[4200.90529704 4259.06618063 4297.76951718 4440.41462691 4356.70291908],v1_pipe_NeuralNetwork_4310.972_20210728_174612.pickle
+RandomForest,"RandomForestRegressor(max_depth=6, min_samples_split=10, n_estimators=600)","[{'model__n_estimators': 600, 'model__min_samples_split': 10, 'model__min_samples_leaf': 1, 'model__max_features': 'auto', 'model__max_depth': 6, 'model__bootstrap': True}]",347.114,83.394,258.7532103752229,129.01086178926394,False,False,[294.0149002  487.6916059  316.55678598 388.06833806 249.23623435],v1_pipe_RandomForest_347.114_20210728_175346.pickle
+XGB,"XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+             colsample_bynode=1, colsample_bytree=0.7, gamma=0.3, gpu_id=-1,
+             importance_type='gain', interaction_constraints='',
+             learning_rate=0.1, max_delta_step=0, max_depth=3,
+             min_child_weight=0.001, missing=nan, monotone_constraints='()',
+             n_estimators=200, n_jobs=0, num_parallel_tree=1, random_state=0,
+             reg_alpha=0, reg_lambda=1, scale_pos_weight=1, subsample=1,
+             tree_method='exact', validate_parameters=1, verbosity=None)","[{'model__n_estimators': 200, 'model__min_child_weight': 0.001, 'model__max_depth': 3, 'model__learning_rate': 0.1, 'model__gamma': 0.3, 'model__colsample_bytree': 0.7}]",320.958,86.641,228.02347815108396,116.70732391479547,False,False,[267.72896106 465.4409493  278.26456165 370.24116581 223.11449946],v1_pipe_XGB_320.958_20210728_175346.pickle
+LGBM,"LGBMRegressor(boosting_type='dart', colsample_bytree=1, learning_rate=0.15,
+              max_depth=7, min_child_weight=3, n_estimators=400,
+              num_leaves=1336)","[{'model__num_leaves': 1336, 'model__n_estimators': 400, 'model__min_child_weight': 3, 'model__max_depth': 7, 'model__learning_rate': 0.15, 'model__colsample_bytree': 1, 'model__boosting_type': 'dart'}]",331.633,84.622,241.34404959480761,98.25353825492854,False,False,[277.04708621 473.73696349 309.23004958 369.82157975 228.33127445],v1_pipe_LGBM_331.633_20210728_175346.pickle
+Ridge,"Ridge(alpha=0.17083, fit_intercept=False)","[{'model__fit_intercept': False, 'model__alpha': 0.17083}]",331.437,50.748,307.8234790101489,173.465393367507,False,False,[325.21840868 278.92975574 341.78280259 421.97272705 289.279185  ],v1_pipe_Ridge_331.437_20210728_175346.pickle
+NeuralNetwork,<tensorflow.python.keras.wrappers.scikit_learn.KerasRegressor object at 0x000001ACF4B8BE50>,"[{'model__optimizer': 'RMSprop', 'model__kernel_initializer': 'uniform', 'model__epochs': 200, 'model__dropout': 0.1, 'model__batch_size': 32, 'model__activation': 'linear'}]",347.904,46.495,313.94220905233374,176.80953945568692,False,False,[338.36290676 311.521696   358.43339408 431.39232213 299.81022397],v1_pipe_NeuralNetwork_347.904_20210728_175346.pickle
