@@ -36,7 +36,6 @@ def get_raw_data():
     This function return a pandas DataFrame with the raw data.
     """
 
-    # raw_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2.csv'))
     raw_df = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'houses_to_rent_v2.csv'))
     return raw_df
 
@@ -47,7 +46,6 @@ def get_cleaned_data():
     This function return a pandas DataFrame with the cleaned data.
     """
 
-    # clean_data = pd.read_csv(os.path.join(os.path.abspath('../data'), 'houses_to_rent_v2_fteng.csv'))
     clean_data = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'houses_to_rent_v2_fteng.csv'))
     return clean_data
 
@@ -55,9 +53,9 @@ def get_cleaned_data():
 @st.cache
 def get_raw_eval_df():
     """
-    This function return a pandas DataFrame with the dataframe and themachine learning models along with it's metrics.
+    This function return a pandas DataFrame with the dataframe and the machine learning models along with it's metrics.
     """
-    # raw_eval_df = pd.read_csv(os.path.join(os.path.abspath('../data'), 'model_evaluation.csv'))
+
     raw_eval_df = pd.read_csv(os.path.join(os.path.abspath(''), 'data', 'model_evaluation.csv'))
     return raw_eval_df
 
@@ -65,20 +63,17 @@ def get_raw_eval_df():
 @st.cache(hash_funcs={pd.DataFrame: lambda x: x})
 def load_models_df(dataframe):
     df_evaluated = dataframe.copy()
-    # models_list = os.listdir(os.path.abspath('../models'))
     models_list = os.listdir(os.path.join(os.path.abspath(''), 'models'))
     rep = {"pipe": "model", "pickle": "h5"}
     for index, row in df_evaluated.iterrows():
         # check if the file_name is in our models directory
         if row['pipe_file_name'] in models_list:
             # now, load the model.
-            # with open(os.path.join(os.path.abspath('../models'), row['pipe_file_name']), 'rb') as fid:
             with open(os.path.join(os.path.abspath(''), 'models', row['pipe_file_name']), 'rb') as fid:
                 model_trained = pickle.load(fid)
             
             # for the keras model, we have to load the model separately and add into the pipeline or transformed target object.
             if row['name'] == 'NeuralNetwork':
-                # model_keras = load_model(os.path.join(os.path.abspath('../models'), functools.reduce(lambda a, kv: a.replace(*kv), rep.items(), row['pipe_file_name'])))
                 model_keras = load_model(os.path.join(os.path.abspath(''), 'models', functools.reduce(lambda a, kv: a.replace(*kv), rep.items(), row['pipe_file_name'])))
                 # check if the target transformer it is active
                 if row['custom_target']:
@@ -126,7 +121,6 @@ condition = st.sidebar.selectbox(
 # ------------- Introduction ------------------------
 
 if condition == 'Introduction':
-    # st.image('../data/dataset-cover.jpg')
     st.image(os.path.join(os.path.abspath(''), 'data', 'dataset-cover.jpg'))
     st.subheader('About')
     
@@ -276,7 +270,6 @@ elif condition == 'Model Prediction':
     select_city = st.sidebar.selectbox(
         'Select the City',
         clean_df['city'].value_counts().index
-        # [i for i in clean_df['city'].unique()]
     )
 
     select_area = st.sidebar.number_input(
@@ -341,7 +334,6 @@ elif condition == 'Model Prediction':
     st.dataframe(eval_df.drop(columns=['all_scores_cv', 'pipe_file_name', 'model_trained']))
 
     if st.button('Predict', help='Be certain to check the parameters on the sidebar'):
-        # with st.spinner('Wait for it...'):
         predicted_value = model_trained_mpredict.predict(value_to_predict)
         st.success(f'The predicted value is R$ {round(predicted_value[0], 2)}')
 
@@ -415,3 +407,4 @@ elif condition == 'Model Evaluation':
     fig = graphs.plot_boxplot(data=eval_df, x=None, y=None, model_name=select_model_meval, custom_feature=select_custom_features_meval, custom_target=select_custom_target_meval, single_box=True, title_text='Cross Validation with 5 Folds', height=height, width=width, margin=margin)
 
     st.plotly_chart(fig)
+

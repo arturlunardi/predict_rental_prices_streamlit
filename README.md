@@ -32,3 +32,17 @@ Models:
 - Neural Network
 
 Our main accuracy metric is RMSE. To enhance our model definition, we utilized Cross Validation and Random Search for hyperparameter tuning.
+
+# Run the App
+
+To run locally, clone the repository, go to the diretory and install the requirements.
+
+```
+pip install -r requirements.txt
+```
+
+Now, go to the src directory and run:
+
+```
+streamlit run app.py
+```
