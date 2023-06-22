@@ -1,6 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
 
 
 def create_model(optimizer='adam', dropout=0.2, activation='relu', kernel_initializer='normal'):
@@ -19,7 +19,7 @@ def create_model(optimizer='adam', dropout=0.2, activation='relu', kernel_initia
 class FeatureCreation(BaseEstimator, TransformerMixin):
     def __init__(self):
         # print('FeatureCreation initialized')
-        return None
+        pass
     
     # For the fit method, we will pass the parameter x. This is our independent variables. 
     # This fit method will be called when we fit the pipeline.

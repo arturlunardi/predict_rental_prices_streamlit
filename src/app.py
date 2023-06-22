@@ -7,8 +7,8 @@ import os
 # os.environ['HDF5_DISABLE_VERSION_CHECK']='2'
 from feature_models import create_model, FeatureCreation
 import pickle
-from keras.wrappers.scikit_learn import KerasRegressor
-from keras.models import load_model
+from tensorflow.compat.v1.keras.wrappers.scikit_learn import KerasRegressor
+from tensorflow.keras.models import load_model
 import functools
 from sklearn.model_selection import train_test_split
 import graphs
